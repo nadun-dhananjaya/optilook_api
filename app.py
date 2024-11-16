@@ -35,7 +35,7 @@ async def predict_face_shape_endpoint(file: UploadFile = File(...)):
 
     try:
         # Call the prediction function
-        result = predict_face_shape(file.file)
+        result = await predict_face_shape(file.file)
         return result
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
@@ -51,7 +51,7 @@ async def predict_skin_tone_endpoint(file: UploadFile = File(...)):
 
     try:
         # Call the prediction function
-        result = predict_skin_tone(file.file)
+        result = await predict_skin_tone(file.file)
         return result
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
