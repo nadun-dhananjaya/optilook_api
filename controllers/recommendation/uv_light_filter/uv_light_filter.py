@@ -27,8 +27,8 @@ def recommend_uv_protection(job_category):
         new_prediction_prob = loaded_model.predict_proba(new_input)
 
         # Extract probabilities for each class
-        prob_no_use = new_prediction_prob[0][0] * 100  # Probability of not using blue light glasses
-        prob_use = new_prediction_prob[0][1] * 100     # Probability of using blue light glasses
+        prob_no_use = new_prediction_prob[0][1] * 100  # Probability of not using blue light glasses
+        prob_use = new_prediction_prob[0][0] * 100     # Probability of using blue light glasses
 
         # Recommendation message
         recommendation =  (f"Based on your job category, "

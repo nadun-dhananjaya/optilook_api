@@ -10,15 +10,7 @@ except Exception as e:
     raise RuntimeError(f"Failed to load the model: {e}")
 
 def recommend_blue_light(screen_time):
-    """
-    Recommends blue light blocking glasses based on screen time using a trained model.
-
-    Parameters:
-        screen_time (float): Daily screen time in hours.
-
-    Returns:
-        dict: A dictionary with the recommendation message and probabilities.
-    """
+   
     try:
         # Create a DataFrame for the new input
         new_input = pd.DataFrame({'Screen_Time': [screen_time]})
