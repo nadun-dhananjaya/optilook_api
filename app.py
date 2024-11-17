@@ -7,8 +7,9 @@ from controllers.recommendation.face_shape_frame_shape.face_shape_frame_shape im
 from controllers.recommendation.face_tone_frame_color.face_tone_frame_color import recommend_frame_color_with_probabilities 
 from controllers.recommendation.blue_light_filter.blue_light_filter import recommend_blue_light 
 from controllers.recommendation.uv_light_filter.uv_light_filter import recommend_uv_protection
+from controllers.recommendation.age_group_weight.age_group_frame_weight import recommend_frame_weight
 # Allowed origins
-origins = ["http://localhost:3000"]
+origins = ["http://localhost:5173"]
 
 app = FastAPI()
 
@@ -133,6 +134,24 @@ async def recommend_blue_light_glasses(input_data: UvInput):
     try:
         # Call the prediction function
         result = recommend_uv_protection(input_data.job_category)
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    
+class AgeGroupInput(BaseModel):
+    age_group: float
+
+@app.post("/recommend/age_group_frame_weight")
+async def recommend_blue_light_glasses(input_data: AgeGroupInput):
+    """
+    Endpoint for predicting face shape.
+    """
+    if not input_data:
+        raise HTTPException(status_code=400, detail="No frame shape provided")
+
+    try:
+        # Call the prediction function
+        result = recommend_frame_weight(input_data.age_group)
         return result
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

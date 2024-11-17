@@ -10,7 +10,7 @@ from torchvision.models import EfficientNet_B4_Weights
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 MODEL_PATH = os.path.abspath('controllers/face_shape/best_model.pth')
 NUM_CLASSES = 5  # Update with your number of classes
-CLASS_LABELS = ['Oval', 'Square', 'Round', 'Heart', 'Rectangle']  # Update as per your dataset
+CLASS_LABELS = ['Heart','Oblong', 'Oval', 'Round', 'Square']  # Update as per your dataset
 
 # Load the model once when the module is imported
 model = torchvision.models.efficientnet_b4(weights=EfficientNet_B4_Weights.DEFAULT)
