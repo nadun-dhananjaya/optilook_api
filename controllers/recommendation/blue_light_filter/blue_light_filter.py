@@ -31,7 +31,7 @@ def recommend_blue_light(screen_time):
         prob_use = new_prediction_prob[0][1] * 100     # Probability of using blue light glasses
 
         # Recommendation message
-        recommendation = (f"Based on your screen time of {screen_time} hours, "
+        recommendation = (f"Based on your screen time, "
                           f"there is a {prob_use:.2f}% chance that you may need blue light blocking glasses. "
                           f"{prob_no_use:.2f}% of people with similar screen time do not use blue light blocking glasses.")
 
